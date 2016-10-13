@@ -244,7 +244,9 @@ L.Map.ContextMenu = L.Handler.extend({
 						.off(el, 'click', callback);
 				}
 
-				this._container.removeChild(el);
+				// get the wrapping li
+				var parentEl = el.parentNode;
+				this._container.removeChild(parentEl);
 				this._items.splice(i, 1);
 
 				return item;
