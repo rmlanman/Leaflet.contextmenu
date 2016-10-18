@@ -245,7 +245,7 @@ L.Map.ContextMenu = L.Handler.extend({
 				}
 
 				// get the wrapping li
-				var parentEl = el.parentNode;
+				var parentEl = el.parentNode
 				this._container.removeChild(parentEl);
 				this._items.splice(i, 1);
 
@@ -256,7 +256,11 @@ L.Map.ContextMenu = L.Handler.extend({
 	},
 
 	_createSeparator: function (container, index) {
-		var el = this._insertElementAt('li', 'divider', container, index);
+		var li = this._insertElementAt('li', '', container, index),
+			  el = document.createElement('div');
+
+		el.className = 'divider';
+		li.appendChild(el);
 
 		return {
 			id: L.Util.stamp(el),
